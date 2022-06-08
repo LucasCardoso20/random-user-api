@@ -1,11 +1,11 @@
 import getElement from "./utils/getElement.js";
-import fetchUser from "./utils/fetchUser.js";
+import fetchPeople from "./utils/fetchUser.js";
 import displayUser from "./utils/displayUser.js";
 
 const btn = getElement('.btn')
 
 const showUser = async () => {
-    const person = await fetchUser()
+    const person = await fetchPeople()
     displayUser(person)
 }
 
