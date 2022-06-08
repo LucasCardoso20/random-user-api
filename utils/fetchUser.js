@@ -1,8 +1,8 @@
-const url = 'https://randomuser.me/api/?results=20';
+const URL = 'https://randomuser.me/api/';
 
-const fetchPeople =  async () => {
-    try {
-        const response = await fetch(url)
+const fetchUser =  async () => {
+    
+        const response = await fetch(URL)
         const data = await response.json()
         const person = data.results[0]
         const {phone, email} = person;
@@ -12,18 +12,16 @@ const fetchPeople =  async () => {
         const {dob:{age}} = person
         const {street:{number, name}} = person.location
         return {
+            image,
             phone,
-            email, 
-            image, 
+            email,  
             password, 
             age, 
             street:`${number} ${name}`,
             name: `${first} ${last}`
         }
 
-    } catch (error) {
-        console.log(error);
-    }
+    
 }
 
-export default fetchPeople;
+export default fetchUser;
